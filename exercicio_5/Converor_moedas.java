@@ -24,13 +24,14 @@ public class Converor_moedas  extends JFrame{
 	
 	public Converor_moedas() throws HeadlessException {
 
+		//tela
         this.setSize(500,400);
         this.setTitle("exercicio5");
         this.setResizable(false);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setLocation(500, 500);
-        //this.setLayout(new GridLayout(7,1));
-    
+       
+    //inicializacao dos componentes da tela
         barra  = new JMenuBar();
         menu = new JMenu("Help");
         item1 = new JMenuItem("Acerca do programa");
@@ -93,7 +94,7 @@ public class Converor_moedas  extends JFrame{
         this.setVisible(true);
         
         
-        //accao dos bts
+        //accao dos botões
         
         
         item1.addActionListener(new ActionListener() {
@@ -146,7 +147,7 @@ public class Converor_moedas  extends JFrame{
 					
 					Double moeda = 64.0;
 					calcula(moeda);
-				} catch (Exception erro) {
+				} catch (Exception erro) { //tratamento de possiveis erros e excepcoes
 					JOptionPane.showMessageDialog(null, "insira os dados corretamente");
 					}
 				
@@ -154,25 +155,25 @@ public class Converor_moedas  extends JFrame{
 		});
 	}
 
-	private void addMenu(JMenu menu, JComponent...args) {
+	private void addMenu(JMenu menu, JComponent...args) {  //método para adicionar vários componentes em jmenu de 1 só vez
 		for (var arg : args) {
 			menu.add(arg);
 		}
 	}
 	
-	private void addFast(JPanel panel, JComponent...args) {
+	private void addFast(JPanel panel, JComponent...args) { //método para adicionar vários componentes em paineis de 1 só vez
 		for (var  arg : args) {
 			panel.add(arg);
 		}
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) { //método principal
 		new Converor_moedas();
 	}
-	private void calcula(Double moeda) {
+	private void calcula(Double moeda) { //método que faz o cálculo da conversão
 		valor =  Double.parseDouble(txt1.getText());
-		Double result = valor / moeda;
-		String texto = result.toString();
+		Double result = valor / moeda;//realizando o cálculo
+		String texto = result.toString(); //transformando o resultado do cálculo para string
 		txt4.setText(texto);
 	}
 }
